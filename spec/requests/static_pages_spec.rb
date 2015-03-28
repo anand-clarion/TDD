@@ -41,6 +41,70 @@ describe "Static pages" do
     end
   end
 end
+
+
+
+### Setup 2 ######################
+# require 'spec_helper'
+
+# describe "Static pages" do
+
+#   ### Added base title to reduce redundant code ###
+#   let(:base_title) { "DemoApp" }
+
+#   describe "Home page" do
+
+#     it "should have the content 'Sample App'" do
+#       visit '/static_pages/home'
+#       expect(page).to have_content('Sample App')
+#     end
+
+#     it "should have the title 'Home'" do
+#       visit '/static_pages/home'
+#       expect(page).to have_title("#{base_title} | Home")
+#     end
+#   end
+
+#   describe "Help page" do
+
+#     it "should have the content 'Help'" do
+#       visit '/static_pages/help'
+#       expect(page).to have_content('Help')
+#     end
+
+#     it "should have the title 'Help'" do
+#       visit '/static_pages/help'
+#       expect(page).to have_title("#{base_title} | Help")
+#     end
+#   end
+
+#   describe "About page" do
+
+#     it "should have the content 'About Us'" do
+#       visit '/static_pages/about'
+#       expect(page).to have_content('About Us')
+#     end
+
+#     it "should have the title 'About Us'" do
+#       visit '/static_pages/about'
+#       expect(page).to have_title("#{base_title} | About Us")
+#     end
+#   end
+
+#   describe "Contact page" do
+
+#     it "should have the content 'Contact'" do
+#       visit '/static_pages/contact'
+#       expect(page).to have_content('Contact')
+#     end
+
+#     it "should have the title 'Contact'" do
+#       visit '/static_pages/contact'
+#       expect(page).to have_title("#{base_title} | Contact")
+#     end
+#   end
+# end
+###################################
 # This creates the static_pages_spec.rb in the spec/requests directory. As with most generated code, the result is not pretty, so let’s open static_pages_spec.rb with a text editor and replace it with the contents of Listing 3.9.
 
 # The code in Listing 3.9 is pure Ruby, but even if you’ve studied Ruby before it might not look familiar. This is because RSpec uses the general malleability of Ruby to define a domain-specific language (DSL) built just for testing. The important point is that you do not need to understand RSpec’s syntax to be able to use RSpec. It may seem like magic at first, but RSpec and Capybara are designed to read more or less like English, and if you follow the examples in this tutorial you’ll pick it up fairly quickly.

@@ -1,78 +1,90 @@
-require 'spec_helper'
+#require 'spec_helper'
 
-describe "Static pages" do
+#describe "Static pages" do
 
-  describe "Home page" do
+  # describe "Home page" do
 
-    it "should have the content 'Sample App'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Sample App')
-    end
+  #   it "should have the content 'Sample App'" do
+  #     visit root_path
+  #     expect(page).to have_content('Sample App')
+  #   end
 
-    it "should have the title 'Home'" do
-      visit '/static_pages/home'
-      expect(page).to have_title("DemoApp | Home")
-    end
-  end
+  #   it "should have the title 'Home'" do
+  #     #visit '/static_pages/home'
+  #     expect(page).to have_title("DemoApp | Home")
+  #   end
+  # end
 
-  describe "Help page" do
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Help')
-    end
+  # describe "Help page" do
+  #   it "should have the content 'Help'" do
+  #     visit '/static_pages/help'
+  #     expect(page).to have_content('Help')
+  #   end
 
-    it "should have the title 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_title("DemoApp | Help")
-    end
-  end
+  #   it "should have the title 'Help'" do
+  #     visit '/static_pages/help'
+  #     expect(page).to have_title("DemoApp | Help")
+  #   end
+  # end
 
-  describe "About page" do
+  # describe "About page" do
 
-    it "should have the content 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About Us')
-    end
+  #   it "should have the content 'About Us'" do
+  #     visit '/static_pages/about'
+  #     expect(page).to have_content('About Us')
+  #   end
 
-    it "should have the title 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_title("DemoApp | About Us")
-    end
-  end
-end
+  #   it "should have the title 'About Us'" do
+  #     visit '/static_pages/about'
+  #     expect(page).to have_title("DemoApp | About Us")
+  #   end
+  # end
+#   before { visit root_path }
+
+#   it "should have the content 'Sample App'" do
+#     expect(page).to have_content('Sample App')
+#   end
+
+#   it "should have the base title" do
+#     expect(page).to have_title("Ruby on Rails Tutorial Sample App")
+#   end
+
+#   it "should not have a custom page title" do
+#     expect(page).not_to have_title('| Home')
+#   end
+# end
 
 
 
 ### Setup 2 ######################
+
 # require 'spec_helper'
+
 
 # describe "Static pages" do
 
 #   ### Added base title to reduce redundant code ###
 #   let(:base_title) { "DemoApp" }
+#   let(:root_path) { "/" }
+
+#   subject { page }
 
 #   describe "Home page" do
+#     before { visit root_path }
 
-#     it "should have the content 'Sample App'" do
-#       visit '/static_pages/home'
-#       expect(page).to have_content('Sample App')
-#     end
-
-#     it "should have the title 'Home'" do
-#       visit '/static_pages/home'
-#       expect(page).to have_title("#{base_title} | Home")
-#     end
+#     it { should have_content('Sample App') }
+#     it { should have_title(base_title) }
+#     it { should_not have_title('| Home') }
 #   end
 
 #   describe "Help page" do
-
 #     it "should have the content 'Help'" do
-#       visit '/static_pages/help'
+#       visit '/help'
 #       expect(page).to have_content('Help')
 #     end
 
 #     it "should have the title 'Help'" do
-#       visit '/static_pages/help'
+#       visit '/help'
 #       expect(page).to have_title("#{base_title} | Help")
 #     end
 #   end
@@ -80,12 +92,12 @@ end
 #   describe "About page" do
 
 #     it "should have the content 'About Us'" do
-#       visit '/static_pages/about'
+#       visit '/about'
 #       expect(page).to have_content('About Us')
 #     end
 
 #     it "should have the title 'About Us'" do
-#       visit '/static_pages/about'
+#       visit '/about'
 #       expect(page).to have_title("#{base_title} | About Us")
 #     end
 #   end
@@ -93,18 +105,53 @@ end
 #   describe "Contact page" do
 
 #     it "should have the content 'Contact'" do
-#       visit '/static_pages/contact'
+#       visit '/contact'
 #       expect(page).to have_content('Contact')
 #     end
 
 #     it "should have the title 'Contact'" do
-#       visit '/static_pages/contact'
+#       visit '/contact'
 #       expect(page).to have_title("#{base_title} | Contact")
 #     end
 #   end
 # end
 ###################################
-# This creates the static_pages_spec.rb in the spec/requests directory. As with most generated code, the result is not pretty, so let’s open static_pages_spec.rb with a text editor and replace it with the contents of Listing 3.9.
+require 'spec_helper'
+
+describe "Static pages" do
+
+  subject { page }
+
+  describe "Home page" do
+    before {  visit '/' }
+
+    it { should have_content('Sample App') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
+  end
+
+  describe "Help page" do
+    before { visit '/help' }
+
+    it { should have_content('Help') }
+    it { should have_title(full_title('Help')) }
+  end
+
+  describe "About page" do
+    before { visit '/about' }
+
+    it { should have_content('About') }
+    it { should have_title(full_title('About Us')) }
+  end
+
+  describe "Contact page" do
+    before { visit  visit '/contact' }
+
+    it { should have_content('Contact') }
+    it { should have_title(full_title('Contact')) }
+  end
+end
+# This creates the spec.rb in the spec/requests directory. As with most generated code, the result is not pretty, so let’s open static_pages_spec.rb with a text editor and replace it with the contents of Listing 3.9.
 
 # The code in Listing 3.9 is pure Ruby, but even if you’ve studied Ruby before it might not look familiar. This is because RSpec uses the general malleability of Ruby to define a domain-specific language (DSL) built just for testing. The important point is that you do not need to understand RSpec’s syntax to be able to use RSpec. It may seem like magic at first, but RSpec and Capybara are designed to read more or less like English, and if you follow the examples in this tutorial you’ll pick it up fairly quickly.
 

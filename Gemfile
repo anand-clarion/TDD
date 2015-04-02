@@ -10,6 +10,7 @@ gem 'jbuilder',             '2.2.3'
 gem 'sdoc',                 '0.4.0', group: :doc
  gem 'guard-rspec', require: false
  gem 'rspec-rails'
+ gem 'bootstrap-sass'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
 
@@ -19,7 +20,7 @@ group :development, :test do
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
   gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara'
+  gem 'capybara', '>=2.2.0.beta'
 end
 
 group :test do

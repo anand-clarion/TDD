@@ -32,8 +32,6 @@ textarea {
   margin-bottom: 10px;
 }
 
-a:link, a:visited, a:hover { color:white !important; }
-
 a:hover { background:none; border: 1px solid white; }
 
 /* typography */
@@ -61,9 +59,9 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-}
+  }
 
-/* header */
+  /* header */
 
 #logo {
   float: left;

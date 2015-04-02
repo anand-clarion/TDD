@@ -10,10 +10,10 @@ gem 'jbuilder',             '2.2.3'
 gem 'sdoc',                 '0.4.0', group: :doc
 gem 'guard-rspec', require: false
 gem 'rspec-rails'
+gem 'bootstrap-sass'
+gem 'bcrypt-ruby', '3.1.2'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
-
-gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -21,13 +21,17 @@ group :development, :test do
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
   gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara'
+  gem 'capybara', '>=2.2.0.beta'
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'childprocess'
 end
 
 group :production do

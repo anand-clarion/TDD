@@ -8,6 +8,12 @@ html {
 
 body {
   padding-top: 60px;
+  height:100%;
+  background: -webkit-linear-gradient(#FBFBEF 20%, #CEF6CE, #A9F5E1);
+  background: -o-linear-gradient(#FBFBEF 20%, #CEF6CE, #A9F5E1);
+  background: -moz-linear-gradient(#FBFBEF 20%, #CEF6CE, #A9F5E1);
+  background: linear-gradient(#FBFBEF 20%, #CEF6CE, #A9F5E1);
+  min-height:700px;
 }
 
 section {
@@ -25,6 +31,11 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
+a:hover { background:none; border: 1px solid white; }
+
+/* typography */
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -57,11 +68,11 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding: 10px;
   font-weight: bold;
   line-height: 1;
+  margin: 3px 0 0 0;
 }
 
 #logo:hover {
@@ -69,22 +80,26 @@ p {
   text-decoration: none;
 }
 
-
-/* footer */
-
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #999;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  color:#8A2908;
+  background:#35BA46;
+  margin:auto;
+  padding:26px 70px 10px 70px;
+  font-weight:bold;
 }
 
 footer a {
-  color: #555;
+  color: white;
+  font-size:14px;
+  font-weight:bold;
+  padding:10px;
 }
 
 footer a:hover {
-  color: #222;
+  background:none;
 }
 
 footer small {
@@ -99,4 +114,27 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 10px;
+}
+
+/*  Custom css */
+.nav li { float:left; }
+
+.nav li a { margin:5px 0 0 0 }
+
+.left { float:left; }
+
+.right { float:right; }
+
+.navbar-inverse {
+  background-color:#35BA46;
+
+  a {
+    color:white;
+    font-weight:bold;
+  }
+
+  a:hover {
+  background:none !important;
+  font-size:16px;
+  }
 }

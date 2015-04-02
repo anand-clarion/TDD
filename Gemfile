@@ -8,10 +8,12 @@ gem 'jquery-rails',         '4.0.3'
 gem 'turbolinks',           '2.3.0'
 gem 'jbuilder',             '2.2.3'
 gem 'sdoc',                 '0.4.0', group: :doc
- gem 'guard-rspec', require: false
- gem 'rspec-rails'
+gem 'guard-rspec', require: false
+gem 'rspec-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
+
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

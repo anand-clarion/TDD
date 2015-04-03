@@ -36,4 +36,6 @@ DemoApp::Application.configure do
 
   config.active_support.test_order = :sorted
 
+  ActiveModel::SecurePassword.min_cost = true
+
 end

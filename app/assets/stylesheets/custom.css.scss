@@ -157,6 +157,11 @@ footer ul li {
 .custom-header {
   background-color:#35BA46;
 
+  .dropdown-menu {
+    background-color: grey;
+    a, a:visited, a:hover, a:active { color:white; }
+  }
+
   a, a:visited, a:hover, a:active {
     color:white;
     font-weight:bold;
@@ -164,7 +169,6 @@ footer ul li {
 
   a:hover {
     background:none !important;
-    font-size:16px;
     background:none; border: 1px solid white;
   }
 }
@@ -228,7 +232,7 @@ input {
   padding:0px !important;
 }
 
-#new_user { width:300px; margin:auto; }
+form { width:300px; margin:auto; }
 
 body > .container {
   padding-bottom:74px;

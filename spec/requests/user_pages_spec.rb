@@ -86,6 +86,7 @@ describe "User pages" do
           click_button "Save changes"
         end
         it { should have_title(new_name) }
+        it { expect(user.reload.email). to eql(new_email) }
         it { should have_selector('div.alert.alert-success')}
       end
     end

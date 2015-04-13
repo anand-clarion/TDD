@@ -18,8 +18,14 @@ Spork.prefork do
 
   RSpec.configure do |config|
 
-
+    # This configuration allow to use rails routes within Rspec test cases
     config.include Rails.application.routes.url_helpers
+
+    # This Configuration automatically add spec type based on file location
+    config.infer_spec_type_from_file_location!
+
+    Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
 
     # ## Mock Framework
     #

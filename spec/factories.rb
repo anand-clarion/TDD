@@ -6,11 +6,15 @@ FactoryGirl.define do
     password_confirmation "foobar"
   end
 
-  factory :user2 do
-    name     "Arvind Vyas"
-    email    "arvind.vyas@example.com"
+  factory :new_user, class: :user do
+    sequence(:name) { |n| "Arvind#{n}" }
+    sequence(:email) { |n| "arvind.vyas#{n}@example.com" }
     password "foobar"
     password_confirmation "foobar"
+  end
+
+  factory :micropost do
+    content "First Post"
   end
 
 end

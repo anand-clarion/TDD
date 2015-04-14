@@ -71,11 +71,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    # This action will check the current user for protected actions.
-    def correct_user
-      @user = User.find(params[:id])
-      unless current_user?(@user)
-        redirect_to root_url, notice: "You are not authorized for this action."
-      end
-    end
 end

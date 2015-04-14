@@ -113,6 +113,22 @@ describe "User pages" do
       it { should have_content("No Post") }
     end
 
-  end
+    describe "post destroy link" do
+      let(:second_user) { FactoryGirl.create(:user, email: 'fake@gmail.com') }
+      let!(:micropost_of_second_user) { FactoryGirl.create(:micropost, user: second_user) }
+      before { valid_signin(second_user) }
 
+      it "should only visible for post owner" do
+        visit user_path(second_user)
+        expect(page).to have_link('Destroy')
+        expect(page).to have_link('Edit Profile')
+      end
+
+      it "Should not visible to non authorized user" do
+        visit user_path(user)
+        expect(page).not_to have_link('destroy')
+      end
+
+    end
+  end
 end

@@ -10,3 +10,25 @@
     </section>
   </aside>
 </div>
+
+<% if @user.microposts.count > 0 %>
+  <div class = "user_posts_list">
+    <h1>We have <%= pluralize(@user.microposts.count, "Post") %> of User <%= @user.name %></h1>
+    <table>
+      <tr>
+        <th>Sr No</th>
+        <th>Post content</th>
+        <th>Time</th>
+      </tr>
+      <% @microposts.each_with_index do |post, n| %>
+        <tr>
+          <td><%= n+1 %></td>
+          <td><%= post.content %></td>
+          <td><%= time_ago_in_words(post.created_at)%> ago</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <p> No Post wrote by <%= @user.name %></p>
+<% end %>

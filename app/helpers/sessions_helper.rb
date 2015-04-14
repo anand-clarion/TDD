@@ -48,5 +48,12 @@ module SessionsHelper
     session.delete(:return_to)
   end
 
+  # This action check the user signed-in or not
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
 
 end

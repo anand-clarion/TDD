@@ -33,7 +33,7 @@ describe "Authentication" do
         fill_in "Password", with: user.password
         click_button "Sign in"
       end
-      it { should have_title(user.name) }
+      it { should have_content(user.name) }
       it { should have_link('Profile') }
       it { should have_link('Sign out') }
       it { should_not have_link('Sign in') }
@@ -60,6 +60,19 @@ describe "Authentication" do
         describe "submitting to the update action" do
           before { patch user_path(user) }
           specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
+
+      describe "in the microposts controller" do
+
+        describe "submitting the create action" do
+          before { post microposts_path }
+          it { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete micropost_path(FactoryGirl.create(:micropost, user: user)) }
+          it {expect(response).to redirect_to(signin_path) }
         end
       end
     end

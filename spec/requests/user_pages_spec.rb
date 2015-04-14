@@ -92,4 +92,27 @@ describe "User pages" do
     end
   end
 
+  describe "profile page" do
+    let(:user) { FactoryGirl.create(:user) }
+
+    let!(:micropost1) { FactoryGirl.create(:micropost, user: user, content: "Post 1") }
+    let!(:micropost2) { FactoryGirl.create(:micropost, user: user, content: "Post 2") }
+
+    before { visit user_path(user) }
+    it { should have_content(user.name) }
+
+    describe "posts" do
+      it { should have_content(user.microposts.count) }
+      it { should have_content(micropost1.content) }
+      it { should have_content(micropost2.content) }
+    end
+
+    describe "No post" do
+      before { user.microposts.destroy_all }
+      it { expect(user.microposts.count).to eq(0) }
+      it { should have_content("No Post") }
+    end
+
+  end
+
 end

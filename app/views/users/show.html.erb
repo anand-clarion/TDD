@@ -34,6 +34,7 @@
         </tr>
       <% end %>
     </table>
+    <%= will_paginate @microposts %>
   </div>
 <% else %>
   <p> No Post wrote by <%= @user.name %></p>

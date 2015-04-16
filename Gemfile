@@ -14,6 +14,8 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.1.2'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
+gem 'will_paginate'
+
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -32,6 +34,7 @@ group :test do
   gem 'spork-rails'
   gem 'guard-spork'
   gem 'childprocess'
+  gem 'simplecov', :require => false
 end
 
 group :production do
